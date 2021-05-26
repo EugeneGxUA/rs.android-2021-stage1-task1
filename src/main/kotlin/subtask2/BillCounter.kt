@@ -1,10 +1,20 @@
 package subtask2
 
+import kotlin.math.absoluteValue
+
 class BillCounter {
 
-    // TODO: Complete the following function
-    // The output could be "Bon Appetit" or the string with number(e.g "10")
     fun calculateFairlySplit(bill: IntArray, k: Int, b: Int): String {
-        throw NotImplementedError("Not implemented")
+        val sumAnna = bill.filterIndexed { index, _ ->
+            index != k
+        }.sum()
+
+        val result = (sumAnna / 2 - b).absoluteValue
+
+        return if (result == 0) {
+            "Bon Appetit"
+        } else {
+            result.toString()
+        }
     }
 }
